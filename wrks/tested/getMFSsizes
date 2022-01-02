@@ -1,0 +1,31 @@
+#!/bin/csh -f
+#*****!/bin/csh -fx --- execute fast(f), show all commands(-x)*****
+#
+#------------------------------------------------------------------------------
+# History:
+# 02Aug2011	Simone Magri    Original script, just ignore stderr output
+# 08Aug2011	Simone Magri	spool file size=0 stderr output to /dev/null
+#
+#------------------------------------------------------------------------------
+
+(cat ~smagri/.evolution/mail/local/Inbox | fgrep "Message-ID: " | wc -l \
+    >! MFSsizes.txt) >& /dev/null
+(cat ~smagri/.evolution/mail/local/mfilter.sbd/bn.sbd/chat \
+    | fgrep -i "Message-ID: " | wc -l >> MFSsizes.txt) >& /dev/null
+(cat ~smagri/.evolution/mail/local/mfilter.sbd/infoJunk \
+    | fgrep -i "Message-ID: " | wc -l >> MFSsizes.txt) >& /dev/null
+(cat ~smagri/.evolution/mail/local/mfilter.sbd/linux.sbd/beagleboard \
+    | fgrep -i "Message-ID: " | wc -l >> MFSsizes.txt) >& /dev/null
+(cat ~smagri/.evolution/mail/local/mfilter.sbd/linux.sbd/slug \
+    | fgrep -i "Message-ID: " | wc -l >> MFSsizes.txt) >& /dev/null
+(cat ~smagri/.evolution/mail/local//mfilter.sbd/strata \
+    | fgrep -i "Message-ID: " | wc -l >> MFSsizes.txt) >& /dev/null
+
+
+exit 0
+
+# To dectect the "Message-ID: " string only at the beggining of a line
+# use this.
+#
+# fgrep "^Message-ID: "
+#

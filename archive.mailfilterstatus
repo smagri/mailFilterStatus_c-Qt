@@ -1,0 +1,199 @@
+#!/bin/csh -f
+#*****!/bin/csh -fx --- execute fast(f), show all commands(-x)*****
+#
+#
+
+# At each  main milestone for a  project this script it  run.  It will
+# backup all the source and build files for the project and place them
+# in  the subdirectory  wrks/argv[1]  of the  current directory,  from
+# which the script is run.
+#
+# argv[0] is the program name.
+# argv[1] is  the first  argument after the  program name,  and should
+# describe what the current milestone is, or will be known by.
+
+
+#
+# Backups *********************************************************************
+#
+
+echo ""
+echo "***** Backup project SOURCE and BUILD files to *.wrks files ***** :"
+cp -p main.cpp main.cpp.wrks
+
+cp -p mailfilterstatus.cpp mailfilterstatus.cpp.wrks
+cp -p mailfilterstatus.hpp mailfilterstatus.hpp.wrks
+
+cp -p mailfilterstatus.ui mailfilterstatus.ui.wrks
+cp -p ui_mailfilterstatus.h ui_mailfilterstatus.h.wrks
+
+cp -p Makefile Makefile.wrks
+cp -p MailFilterStatus.pro MailFilterStatus.pro.wrks
+cp -p MailFilterStatus.pro.user MailFilterStatus.pro.user.wrks
+
+cp -p getMFSsizes getMFSsizes.wrks
+
+
+echo ""
+echo "***** Archive project SOURCE and BUILD files to,"
+echo "      wrks/$argv[1] ***** :"
+mkdir -p wrks/$argv[1]
+
+cp -p main.cpp wrks/$argv[1]
+
+cp -p mailfilterstatus.cpp wrks/$argv[1]
+cp -p mailfilterstatus.hpp wrks/$argv[1]
+
+cp -p mailfilterstatus.ui wrks/$argv[1]
+cp -p ui_mailfilterstatus.h wrks/$argv[1]
+ 
+cp -p Makefile wrks/$argv[1]
+cp -p MailFilterStatus.pro wrks/$argv[1]
+cp -p MailFilterStatus.pro.user wrks/$argv[1]
+
+cp -p getMFSsizes wrks/$argv[1]
+
+echo ""
+echo ""
+
+
+#
+# VERIFY Backups **************************************************************
+#
+echo "***** VERIFY *.wrks backups are == original files ***** :"
+
+diff -rq main.cpp main.cpp.wrks
+if ($status == 0) then
+  echo "main.cpp.wrks verifies"
+else
+  echo "main.cpp.wrks does NOT verify"
+endif
+
+diff -rq mailfilterstatus.cpp mailfilterstatus.cpp.wrks
+if ($status == 0) then
+  echo "mailfilterstatus.cpp.wrks verifies"
+else
+  echo "mailfilterstatus.cpp.wrks does NOT verify"
+endif
+
+diff -rq mailfilterstatus.hpp mailfilterstatus.hpp.wrks
+if ($status == 0) then
+  echo "mailfilterstatus.hpp.wrks verifies"
+else
+  echo "mailfilterstatus.hpp.wrks does NOT verify"
+endif
+
+diff -rq mailfilterstatus.ui mailfilterstatus.ui.wrks
+if ($status == 0) then
+  echo "mailfilterstatus.ui.wrks verifies"
+else
+  echo "mailfilterstatus.ui.wrks does NOT verify"
+endif
+
+diff -rq ui_mailfilterstatus.h ui_mailfilterstatus.h.wrks
+if ($status == 0) then
+  echo "ui_mailfilterstatus.h.wrks verifies"
+else
+  echo "ui_mailfilterstatus.h.wrks does NOT verify" 
+endif
+
+diff -rq Makefile Makefile.wrks
+if ($status == 0) then
+  echo "Makefile.wrks verifies"
+else
+  echo "Makefile.wrks does NOT verify"
+endif
+
+diff -rq MailFilterStatus.pro MailFilterStatus.pro.wrks
+if ($status == 0) then
+  echo "MailFilterStatus.pro.wrks verifies"
+else
+  echo "MailFilterStatus.pro.wrks does NOT verify"
+endif
+
+diff -rq MailFilterStatus.pro.user MailFilterStatus.pro.user.wrks
+if ($status == 0) then
+  echo "MailFilterStatus.pro.user.wrks verifies"
+else
+  echo "MailFilterStatus.pro.user.wrks does NOT verify"
+endif
+
+diff -rq getMFSsizes getMFSsizes.wrks
+if ($status == 0) then
+  echo "getMFSsizes.wrks verifies"
+else
+  echo "getMFSsizes.wrks does NOT verify"
+endif
+
+echo ""
+
+
+echo "***** VERIFY archived backups in wrks/$argv[1], "
+echo "      are == original files: ***** :"
+
+diff -rq main.cpp wrks/$argv[1]/main.cpp
+if ($status == 0) then
+  echo "main.cpp verifies"
+else
+  echo "main.cpp does NOT verify"
+endif
+
+diff -rq mailfilterstatus.cpp wrks/$argv[1]/mailfilterstatus.cpp
+if ($status == 0) then
+  echo "mailfilterstatus.cpp verifies"
+else
+  echo "mailfilterstatus.cpp does NOT verify"
+endif
+
+diff -rq mailfilterstatus.hpp wrks/$argv[1]/mailfilterstatus.hpp
+if ($status == 0) then
+  echo "mailfilterstatus.hpp verifies"
+else
+  echo "mailfilterstatus.hpp does NOT verify"
+endif
+
+diff -rq mailfilterstatus.ui wrks/$argv[1]/mailfilterstatus.ui
+if ($status == 0) then
+  echo "mailfilterstatus.ui verifies"
+else
+  echo "mailfilterstatus.ui does NOT verify"
+endif
+
+diff -rq ui_mailfilterstatus.h wrks/$argv[1]/ui_mailfilterstatus.h
+if ($status == 0) then
+  echo "ui_mailfilterstatus.h verifies"
+else
+  echo "ui_mailfilterstatus.h does NOT verify" 
+endif
+
+diff -rq Makefile wrks/$argv[1]/Makefile
+if ($status == 0) then
+  echo "Makefile verifies"
+else
+  echo "Makefile does NOT verify"
+endif
+
+diff -rq MailFilterStatus.pro wrks/$argv[1]/MailFilterStatus.pro
+if ($status == 0) then
+  echo "MailFilterStatus.pro verifies"
+else
+  echo "MailFilterStatus.pro does NOT verify"
+endif
+
+diff -rq MailFilterStatus.pro.user wrks/$argv[1]/MailFilterStatus.pro.user
+if ($status == 0) then
+  echo "MailFilterStatus.pro.user verifies"
+else
+  echo "MailFilterStatus.pro.user does NOT verify"
+endif
+
+diff -rq getMFSsizes wrks/$argv[1]/getMFSsizes
+if ($status == 0) then
+  echo "getMFSsizes verifies"
+else
+  echo "getMFSsizes does NOT verify"
+endif
+
+echo ""
+
+exit

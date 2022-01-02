@@ -1,0 +1,7 @@
+14Sep2011
+
+Need to  check programe for operations that need to be performed in
+the destructor of the mfs class.
+
+Review howto automatically read the spool dirs from a file, making
+program more general.

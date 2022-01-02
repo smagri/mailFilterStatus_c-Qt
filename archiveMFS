@@ -1,0 +1,199 @@
+#!/bin/csh -f
+#*****!/bin/csh -fx --- execute fast(f), show all commands(-x)*****
+#
+#
+
+# At each  main milestone for a  project this script it  run.  It will
+# backup all the source and build files for the project and place them
+# in  the subdirectory  wrks/argv[1]  of the  current directory,  from
+# which the script is run.
+#
+# argv[0] is the program name.
+# argv[1] is  the first  argument after the  program name,  and should
+# describe what the current milestone is, or will be known by.
+
+
+#
+# Backups *********************************************************************
+#
+
+echo ""
+echo "***** Backup project SOURCE and BUILD files to *.wrks files ***** :"
+cp -p main.cpp main.cpp.wrks
+
+cp -p mfs.cpp mfs.cpp.wrks
+cp -p mfs.hpp mfs.hpp.wrks
+
+cp -p mfs.ui mfs.ui.wrks
+cp -p ui_mfs.h ui_mfs.h.wrks
+
+cp -p Makefile Makefile.wrks
+cp -p MFS.pro MFS.pro.wrks
+cp -p MFS.pro.user MFS.pro.user.wrks
+
+cp -p getMFSsizes getMFSsizes.wrks
+
+
+echo ""
+echo "***** Archive project SOURCE and BUILD files to,"
+echo "      wrks/$argv[1] ***** :"
+mkdir -p wrks/$argv[1]
+
+cp -p main.cpp wrks/$argv[1]
+
+cp -p mfs.cpp wrks/$argv[1]
+cp -p mfs.hpp wrks/$argv[1]
+
+cp -p mfs.ui wrks/$argv[1]
+cp -p ui_mfs.h wrks/$argv[1]
+ 
+cp -p Makefile wrks/$argv[1]
+cp -p MFS.pro wrks/$argv[1]
+cp -p MFS.pro.user wrks/$argv[1]
+
+cp -p getMFSsizes wrks/$argv[1]
+
+echo ""
+echo ""
+
+
+#
+# VERIFY Backups **************************************************************
+#
+echo "***** VERIFY *.wrks backups are == original files ***** :"
+
+diff -rq main.cpp main.cpp.wrks
+if ($status == 0) then
+  echo "main.cpp.wrks verifies"
+else
+  echo "main.cpp.wrks does NOT verify"
+endif
+
+diff -rq mfs.cpp mfs.cpp.wrks
+if ($status == 0) then
+  echo "mfs.cpp.wrks verifies"
+else
+  echo "mfs.cpp.wrks does NOT verify"
+endif
+
+diff -rq mfs.hpp mfs.hpp.wrks
+if ($status == 0) then
+  echo "mfs.hpp.wrks verifies"
+else
+  echo "mfs.hpp.wrks does NOT verify"
+endif
+
+diff -rq mfs.ui mfs.ui.wrks
+if ($status == 0) then
+  echo "mfs.ui.wrks verifies"
+else
+  echo "mfs.ui.wrks does NOT verify"
+endif
+
+diff -rq ui_mfs.h ui_mfs.h.wrks
+if ($status == 0) then
+  echo "ui_mfs.h.wrks verifies"
+else
+  echo "ui_mfs.h.wrks does NOT verify" 
+endif
+
+diff -rq Makefile Makefile.wrks
+if ($status == 0) then
+  echo "Makefile.wrks verifies"
+else
+  echo "Makefile.wrks does NOT verify"
+endif
+
+diff -rq MFS.pro MFS.pro.wrks
+if ($status == 0) then
+  echo "MFS.pro.wrks verifies"
+else
+  echo "MFS.pro.wrks does NOT verify"
+endif
+
+diff -rq MFS.pro.user MFS.pro.user.wrks
+if ($status == 0) then
+  echo "MFS.pro.user.wrks verifies"
+else
+  echo "MFS.pro.user.wrks does NOT verify"
+endif
+
+diff -rq getMFSsizes getMFSsizes.wrks
+if ($status == 0) then
+  echo "getMFSsizes.wrks verifies"
+else
+  echo "getMFSsizes.wrks does NOT verify"
+endif
+
+echo ""
+
+
+echo "***** VERIFY archived backups in wrks/$argv[1], "
+echo "      are == original files: ***** :"
+
+diff -rq main.cpp wrks/$argv[1]/main.cpp
+if ($status == 0) then
+  echo "main.cpp verifies"
+else
+  echo "main.cpp does NOT verify"
+endif
+
+diff -rq mfs.cpp wrks/$argv[1]/mfs.cpp
+if ($status == 0) then
+  echo "mfs.cpp verifies"
+else
+  echo "mfs.cpp does NOT verify"
+endif
+
+diff -rq mfs.hpp wrks/$argv[1]/mfs.hpp
+if ($status == 0) then
+  echo "mfs.hpp verifies"
+else
+  echo "mfs.hpp does NOT verify"
+endif
+
+diff -rq mfs.ui wrks/$argv[1]/mfs.ui
+if ($status == 0) then
+  echo "mfs.ui verifies"
+else
+  echo "mfs.ui does NOT verify"
+endif
+
+diff -rq ui_mfs.h wrks/$argv[1]/ui_mfs.h
+if ($status == 0) then
+  echo "ui_mfs.h verifies"
+else
+  echo "ui_mfs.h does NOT verify" 
+endif
+
+diff -rq Makefile wrks/$argv[1]/Makefile
+if ($status == 0) then
+  echo "Makefile verifies"
+else
+  echo "Makefile does NOT verify"
+endif
+
+diff -rq MFS.pro wrks/$argv[1]/MFS.pro
+if ($status == 0) then
+  echo "MFS.pro verifies"
+else
+  echo "MFS.pro does NOT verify"
+endif
+
+diff -rq MFS.pro.user wrks/$argv[1]/MFS.pro.user
+if ($status == 0) then
+  echo "MFS.pro.user verifies"
+else
+  echo "MFS.pro.user does NOT verify"
+endif
+
+diff -rq getMFSsizes wrks/$argv[1]/getMFSsizes
+if ($status == 0) then
+  echo "getMFSsizes verifies"
+else
+  echo "getMFSsizes does NOT verify"
+endif
+
+echo ""
+
+exit

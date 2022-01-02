@@ -1,0 +1,183 @@
+#!/bin/csh -f
+#*****!/bin/csh -fx --- execute fast(f), show all commands(-x)*****
+#
+#
+
+# At each  main milestone for a  project this script it  run.  It will
+# backup all the source and build files for the project and place them
+# in  the subdirectory  wrks/argv[1]  of the  current directory,  from
+# which the script is run.
+#
+# argv[0] is the program name.
+# argv[1] is  the first  argument after the  program name,  and should
+# describe what the current milestone is, or will be known by.
+
+
+#
+# Backups *********************************************************************
+#
+
+echo ""
+echo "***** Backup project SOURCE and BUILD files to *.wrks files ***** :"
+cp -p main.cpp main.cpp.wrks
+
+cp -p sjmtime.cpp sjmtime.cpp.wrks
+cp -p sjmtime.hpp sjmtime.hpp.wrks
+
+cp -p sjmtime.ui sjmtime.ui.wrks
+cp -p ui_sjmtime.h ui_sjmtime.h.wrks
+
+cp -p Makefile Makefile.wrks
+cp -p SJMTime.pro SJMTime.pro.wrks
+cp -p SJMTime.pro.user SJMTime.pro.user.wrks
+
+
+echo ""
+echo "***** Archive project SOURCE and BUILD files to,"
+echo "      wrks/$argv[1] ***** :"
+mkdir -p wrks/$argv[1]
+
+cp -p main.cpp wrks/$argv[1]
+
+cp -p sjmtime.cpp wrks/$argv[1]
+cp -p sjmtime.hpp wrks/$argv[1]
+
+cp -p sjmtime.ui wrks/$argv[1]
+cp -p ui_sjmtime.h wrks/$argv[1]
+ 
+cp -p Makefile wrks/$argv[1]
+cp -p SJMTime.pro wrks/$argv[1]
+cp -p SJMTime.pro.user wrks/$argv[1]
+
+
+echo ""
+echo ""
+
+
+#
+# VERIFY Backups **************************************************************
+#
+echo "***** VERIFY *.wrks backups are == original files ***** :"
+
+diff -rq main.cpp main.cpp.wrks
+if ($status == 0) then
+  echo "main.cpp.wrks verifies"
+else
+  echo "main.cpp.wrks does NOT verify"
+endif
+
+diff -rq sjmtime.cpp sjmtime.cpp.wrks
+if ($status == 0) then
+  echo "sjmtime.cpp.wrks verifies"
+else
+  echo "sjmtime.cpp.wrks does NOT verify"
+endif
+
+diff -rq sjmtime.hpp sjmtime.hpp.wrks
+if ($status == 0) then
+  echo "sjmtime.hpp.wrks verifies"
+else
+  echo "sjmtime.hpp.wrks does NOT verify"
+endif
+
+diff -rq sjmtime.ui sjmtime.ui.wrks
+if ($status == 0) then
+  echo "sjmtime.ui.wrks verifies"
+else
+  echo "sjmtime.ui.wrks does NOT verify"
+endif
+
+diff -rq ui_sjmtime.h ui_sjmtime.h.wrks
+if ($status == 0) then
+  echo "ui_sjmtime.h.wrks verifies"
+else
+  echo "ui_sjmtime.h.wrks does NOT verify" 
+endif
+
+diff -rq Makefile Makefile.wrks
+if ($status == 0) then
+  echo "Makefile.wrks verifies"
+else
+  echo "Makefile.wrks does NOT verify"
+endif
+
+diff -rq SJMTime.pro SJMTime.pro.wrks
+if ($status == 0) then
+  echo "SJMTime.pro.wrks verifies"
+else
+  echo "SJMTime.pro.wrks does NOT verify"
+endif
+
+diff -rq SJMTime.pro.user SJMTime.pro.user.wrks
+if ($status == 0) then
+  echo "SJMTime.pro.user.wrks verifies"
+else
+  echo "SJMTime.pro.user.wrks does NOT verify"
+endif
+
+echo ""
+
+
+echo "***** VERIFY archived backups in wrks/$argv[1], "
+echo "      are == original files: ***** :"
+
+diff -rq main.cpp wrks/$argv[1]/main.cpp
+if ($status == 0) then
+  echo "main.cpp verifies"
+else
+  echo "main.cpp does NOT verify"
+endif
+
+diff -rq sjmtime.cpp wrks/$argv[1]/sjmtime.cpp
+if ($status == 0) then
+  echo "sjmtime.cpp verifies"
+else
+  echo "sjmtime.cpp does NOT verify"
+endif
+
+diff -rq sjmtime.hpp wrks/$argv[1]/sjmtime.hpp
+if ($status == 0) then
+  echo "sjmtime.hpp verifies"
+else
+  echo "sjmtime.hpp does NOT verify"
+endif
+
+diff -rq sjmtime.ui wrks/$argv[1]/sjmtime.ui
+if ($status == 0) then
+  echo "sjmtime.ui verifies"
+else
+  echo "sjmtime.ui does NOT verify"
+endif
+
+diff -rq ui_sjmtime.h wrks/$argv[1]/ui_sjmtime.h
+if ($status == 0) then
+  echo "ui_sjmtime.h verifies"
+else
+  echo "ui_sjmtime.h does NOT verify" 
+endif
+
+diff -rq Makefile wrks/$argv[1]/Makefile
+if ($status == 0) then
+  echo "Makefile verifies"
+else
+  echo "Makefile does NOT verify"
+endif
+
+diff -rq SJMTime.pro wrks/$argv[1]/SJMTime.pro
+if ($status == 0) then
+  echo "SJMTime.pro verifies"
+else
+  echo "SJMTime.pro does NOT verify"
+endif
+
+diff -rq SJMTime.pro.user wrks/$argv[1]/SJMTime.pro.user
+if ($status == 0) then
+  echo "SJMTime.pro.user verifies"
+else
+  echo "SJMTime.pro.user does NOT verify"
+endif
+
+
+echo ""
+
+exit

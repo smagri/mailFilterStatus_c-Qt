@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MailFilterStatus</class>
+ <widget class="QWidget" name="MailFilterStatus">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>196</width>
+    <height>174</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>196</width>
+    <height>174</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>196</width>
+    <height>174</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MailFilterStatus</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="Inbox">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Inbox</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="numEmailsInInbox">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="bnChat">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>bn/chat</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="numEmailsInBnChat">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="infoJunk">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>infoJunk</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="numEmailsInInfojunk">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="linuxBeagleBoard">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>linux/beagleboard</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLabel" name="numEmailsInLinuxBeagleBoard">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="linuxSlug">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>linux/slug</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="numEmailsInLinuxSlug">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="strata">
+     <property name="minimumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>141</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>strata</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="numEmailsInStrata">
+     <property name="minimumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>999</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

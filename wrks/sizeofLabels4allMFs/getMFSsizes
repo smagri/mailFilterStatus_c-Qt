@@ -1,0 +1,23 @@
+#!/bin/csh -f
+#*****!/bin/csh -fx --- execute fast(f), show all commands(-x)*****
+#
+#------------------------------------------------------------------------------
+# History:
+# 02Aug2011	Simone Magri    Original script, just ignore stderr output
+#
+#------------------------------------------------------------------------------
+
+cat ~smagri/.evolution/mail/local/Inbox | fgrep "Message-ID: " | wc -l > MFSsizes.txt
+cat ~smagri/.evolution/mail/local/bn.sbd/chat \
+    | fgrep "Message-ID: " | wc -l >> MFSsizes.txt
+cat ~smagri/.evolution/mail/local/mfilter.sbd/infoJunk \
+    | fgrep "Message-ID: " | wc -l >> MFSsizes.txt
+cat ~smagri/.evolution/mail/local/linux.sbd/beagleboard \
+    | fgrep "Message-ID: " | wc -l >> MFSsizes.txt
+cat ~smagri/.evolution/mail/local/linux.sbd/slug \
+    | fgrep "Message-ID: " | wc -l >> MFSsizes.txt
+cat ~smagri/.evolution/mail/local//mfilter.sbd/strata \
+    | fgrep "Message-ID: " | wc -l >> MFSsizes.txt
+
+
+exit 0

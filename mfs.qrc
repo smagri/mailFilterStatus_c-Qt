@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/lu1/smagri/proj/mailFilterStatus/c++Qt/MFS">
+        <file>envalope.png</file>
+    </qresource>
+</RCC>
